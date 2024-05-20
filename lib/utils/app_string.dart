@@ -1,4 +1,4 @@
-const String expensesTitle = 'Shopping Mall';
+const String expensesTitle = 'Expense Tracker';
 const String addExpense = 'Add Expense';
 const String editExpense = 'Edit Expense';
 const String descriptionLabel = 'Description';
@@ -8,5 +8,9 @@ const String amountValidationMessage = 'Please enter an amount';
 const String amountValidationNumberMessage = 'Please enter a valid number';
 const String add = 'Add';
 const String save = 'Save';
-const String quantity = 'Quantity';
-const String someThingWentWrong = 'Some thing went wrong';
+const String noExpensesMessage = 'No expenses added yet.';
+const String deleteExpense = 'Delete Expense';
+const String deleteExpenseMessage = 'Are you sure you want to delete this expense?';
+const String cancel = 'Cancel';
+const String delete = 'Delete';
+const String deleteExpenseSuccess = 'Expense deleted successfully';

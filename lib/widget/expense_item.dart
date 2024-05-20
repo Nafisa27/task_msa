@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:task_msa/database/expense_database.dart';
+import 'package:task_msa/utils/app_string.dart';
 
 class ExpenseItem extends StatelessWidget {
   final Expense expense;
   final VoidCallback onEdit;
   final VoidCallback onDelete;
 
-  const ExpenseItem({super.key, required this.expense, required this.onEdit, required this.onDelete});
+  const ExpenseItem({super.key,
+    required this.expense,
+    required this.onEdit,
+    required this.onDelete});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +37,8 @@ class ExpenseItem extends StatelessWidget {
                   children: [
                     Text(
                       expense.description,
-                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                     Text(
                       '\$${expense.amount.toStringAsFixed(2)}',
@@ -51,13 +56,41 @@ class ExpenseItem extends StatelessWidget {
                 onPressed: onEdit,
               ),
               IconButton(
-                icon: const Icon(Icons.delete, color: Colors.red),
-                onPressed: onDelete,
+                  icon: const Icon(Icons.delete, color: Colors.red),
+                  onPressed: () => _showDeleteConfirmationDialog(context),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+
+  void _showDeleteConfirmationDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text(deleteExpense),
+          content: const Text(deleteExpenseMessage),
+          actions: <Widget>[
+            TextButton(
+              child: const Text(cancel),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text(delete),
+              onPressed: () {
+                Navigator.of(context).pop();
+                onDelete();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
