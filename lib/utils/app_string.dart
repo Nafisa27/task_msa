@@ -1,0 +1,12 @@
+const String expensesTitle = 'Shopping Mall';
+const String addExpense = 'Add Expense';
+const String editExpense = 'Edit Expense';
+const String descriptionLabel = 'Description';
+const String descriptionValidationMessage = 'Please enter a description';
+const String amount = 'Amount';
+const String amountValidationMessage = 'Please enter an amount';
+const String amountValidationNumberMessage = 'Please enter a valid number';
+const String add = 'Add';
+const String save = 'Save';
+const String quantity = 'Quantity';
+const String someThingWentWrong = 'Some thing went wrong';
